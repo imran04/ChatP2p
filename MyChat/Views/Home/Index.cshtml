@@ -1,36 +1,18 @@
 ﻿@{
     ViewBag.Title = "Chat";
 }
-@section scripts {
+@section scripts { 
+    <script src="/Scripts/jquery.cssemoticons.min.js"></script>
     <script src="/Scripts/jquery.signalR-1.1.4.min.js"></script>
-    
     <script src="/signalr/hubs"></script>
     <script src="/Scripts/chat/chat.js"></script>
+    <script src="/Scripts/jquery-ui-1.8.20.min.js"></script>
+   
 }
+<link href="/Content/jquery.cssemoticons.css" rel="stylesheet" />
+<link href="/Content/Chat.css" rel="stylesheet" />
 <style>
-    #tbb {
-        width:20%;
-        float:left;
-        
-    }
-        #tbb input[type=text] {
-            width:100px;
-        }
-    #msg {
-        overflow:scroll;
-        height:250px;
-        text-decoration:none;
-    }
-        #msg li {
-            text-decoration:none;
-            font-size:10px;
-            background-color:#4cff00;
-        }
-    .recived {
-        text-decoration:none;
-            font-size:10px;
-            background-color:#7da8dc!important;
-    }
+   
 </style>
 <h2>Chat</h2>
 

@@ -1,0 +1,114 @@
+﻿ #tbb {
+        width: 264px;
+        float: left;
+        border: 1px solid gray;
+        
+    }
+  #tbb h5 {
+            padding: 10px;
+            border: 1px solid;
+            color: green;
+            font-size: 14px;
+            padding-left: 0px;
+            padding-right: 0px;
+            margin: 0px!important;
+            line-height: 0!important;
+        }
+
+            #tbb h5 .close {
+                line-height: 0!important;
+            }
+
+        #tbb input[type=text] {
+            width: 200px;
+        }
+
+    #msg {
+        overflow: scroll;
+        height: 250px;
+        text-decoration: none;
+        display: block;
+        margin-left: 0px;
+    }
+       
+#msg li{
+    padding:5px;
+            text-decoration: none;
+            text-wrap:normal;
+            display: block;
+           
+        }
+
+    #msg li div {
+         margin-top:5px;
+            margin-bottom:1px;
+    } 
+        
+
+.sent {
+    padding:2px;
+    color:gray;
+	position: relative;
+	background: #88b7d5;
+	border: 0px solid #c2e1f5;
+    float:right;
+    width:200px;
+    text-align:right;
+}
+.sent:after, .arrow_box:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.sent:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #88b7d5;
+	border-width: 5px;
+	margin-top: -4px;
+}
+.sent:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-left-color: #c2e1f5;
+	border-width: 5px;
+	margin-top: -4px;
+}
+
+.recive{
+     padding:2px;
+    color:gray;
+	position: relative;
+	background: #d5ca6b;
+	border: 0px solid #f5f182;
+     float:left;
+     text-align:left;
+    width:200px;
+}
+.recive:after, .recive:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.recive:after {
+	border-color: rgba(213, 202, 107, 0);
+	border-right-color: #d5ca6b;
+	border-width: 5px;
+	margin-top: -4px;
+}
+.recive:before {
+	border-color: rgba(245, 241, 130, 0);
+	border-right-color: #f5f182;
+	border-width: 5px;
+	margin-top: -4px;
+}

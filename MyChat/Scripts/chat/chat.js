@@ -1,4 +1,23 @@
-﻿var tab = 1;
+﻿/// <reference path="../jquery-2.0.3.intellisense.js" />
+var tab = 1;
+
+$.fn.scrollTo = function (target, options, callback) {
+    if (typeof options == 'function' && arguments.length == 2) { callback = options; options = target; }
+    var settings = $.extend({
+        scrollTarget: target,
+        offsetTop: 50,
+        duration: 500,
+        easing: 'swing'
+    }, options);
+    return this.each(function () {
+        var scrollPane = $(this);
+        var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+        var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+        scrollPane.animate({ scrollTop: scrollY }, parseInt(settings.duration), settings.easing, function () {
+            if (typeof callback == 'function') { callback.call(this); }
+        });
+    });
+}
 
 $(function () {
 
@@ -6,8 +25,9 @@ $(function () {
         loginHub = $.connection.login,
         $sendBtn = $('#btnSend'),
         $msgTxt = $('#txtMsg');
-
-    // turn the logging on for demo purposes
+       
+    
+   // turn the logging on for demo purposes
    // $.connection.hub.logging = true;
 
     chatHub.client.received = function (message) {
@@ -20,13 +40,13 @@ $(function () {
         var isTabbed = isTab.val();
         console.log(tabb);
         if (isTab.val() == 'false') {
-
-
             insertTab(us, tabb);
             console.log('go');
             isTab.val('true');
         }
-        $('ul[data-dd="' + tabb + '"]').append('<li class="recived">' + message.message + '</li>');
+        $('ul[data-dd="' + tabb + '"]').append('<li class="recived last"><div class=""></div><div class="msgcon recive">' + message.message + '</div></li>');
+        $('ul[data-dd="' + tabb + '"]').scrollTo('ul[data-dd="' + tabb + '"] li.last', { duration: 'slow', offsetTop: '50' }, function () { $('ul[data-dd="' + tabb + '"] li.last').last().removeClass('last'); });
+        $('.msgcon').emoticonize();
         console.log(isTab.val());
         beep();
 
@@ -166,7 +186,7 @@ $(function () {
             "<h5>" + username +
             "<span data-tab=" + tabed + " class='close chatc'>x</span>" +
             "</h5>" +
-            "<ul id='msg' data-dd='" + tabed + "'></ul>" +
+            "<ul id='msg' class='msg' data-dd='" + tabed + "'></ul>" +
             "</div>" +
             "<div>" +
             "<input type='text' data-id=" + tabed + " data-user=" + username + " id=" + tabed + " class='tm'/><button class='send' data-user=" + username + " data-tab=" + tabed + ">send</button>" +
@@ -188,7 +208,14 @@ $(function () {
             console.log(msg);
             $('input[data-id="' + tabbed + '"]').val('');
             var use = $(this).data('user');
-            $('ul[data-dd="' + tabbed + '"]').append('<li>' + msg + '</li>');
+            $('ul[data-dd="' + tabbed + '"]').append('<li class="last from"><div class="msgcon sent">' + msg + '</div><div class=""></div></li>');
+            $('ul[data-dd="' + tabbed + '"]').scrollTo('ul[data-dd="' + tabbed + '"] li.last', { duration: 'slow', offsetTop: '50' }, function () { $('ul[data-dd="' + tabbed + '"] li.last').last().removeClass('last'); });
+            //$('ul[data-dd="' + tabbed + '"] ').animate({
+            //    scrollTop: $('ul[data-dd="' + tabbed + '"] li.last').last().offset().top
+            //}, 20, 'swing', function () { $('ul[data-dd="' + tabbed + '"] li.last').last().removeClass('last'); });
+
+           
+            $('.msgcon').emoticonize();
             chatHub.server.send(msg, use).fail(function (err) {
                 console.log('Send method failed: ' + err);
             });
@@ -197,14 +224,19 @@ $(function () {
         $('.tm').keypress(function (e) {
             var code = (e.keyCode ? e.keyCode : e.which);
             if (code === 13) {
+
                 var use = $(this).data('user');
                 var msg = $(this).val();
-                $(this).val('');
-                var tab = $(this).data('id');
-                $('ul[data-dd="' + tab + '"]').append('<li>' + msg + '</li>');
-                chatHub.server.send(msg, use).fail(function (err) {
-                    console.log('Send method failed: ' + err);
-                });
+                if (msg != null) {
+                    $(this).val('');
+                    var tab = $(this).data('id');
+                    $('ul[data-dd="' + tab + '"]').append('<li class="last from"><div class="msgcon sent">' + msg + '</div><div class=""></div></li>');
+                    $('ul[data-dd="' + tab + '"]').scrollTo('ul[data-dd="' + tab + '"] li.last', { duration: 'slow', offsetTop: '50' }, function () { $('ul[data-dd="' + tab + '"] li.last').last().removeClass('last'); });
+                    $('.msgcon').emoticonize();
+                    chatHub.server.send(msg, use).fail(function (err) {
+                        console.log('Send method failed: ' + err);
+                    });
+                }
             }
         });
 
