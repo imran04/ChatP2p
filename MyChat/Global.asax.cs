@@ -17,7 +17,7 @@ namespace MyChat
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            RouteTable.Routes.MapHubs();
+            
         }
 
         public static void RegisterRoutes(RouteCollection routes)
@@ -42,6 +42,7 @@ namespace MyChat
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            RouteTable.Routes.MapHubs();
         }
     }
 }
