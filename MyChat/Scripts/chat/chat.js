@@ -1,6 +1,6 @@
 ﻿/// <reference path="../jquery-2.0.3.intellisense.js" />
 var tab = 1;
-
+var online = 0;
 $.fn.scrollTo = function (target, options, callback) {
     if (typeof options == 'function' && arguments.length == 2) { callback = options; options = target; }
     var settings = $.extend({
@@ -57,13 +57,15 @@ $(function () {
     chatHub.client.userConnected = function (username) {
         $('#ull').append('<li class="pm" id="' + tab + username + '" data-user="' + username + '" ><span>' + username + '</span><input type="hidden" id="tab" value="' + tab + username + '"><input type="hidden" id="shown" data-tab="' + tab + username + '" value="false"/></li>');
         tab++;
+        online++;
         bindMe();
 
     };
 
     chatHub.client.userDisconnected = function (username) {
         console.log(username);
-        $('li#' + username).remove();
+        online--;
+        $('li[data-user="' + username+'"]').remove();
         bindMe();
 
     };
@@ -93,6 +95,7 @@ $(function () {
 
                 var str = "<ul id='ull'>";
                 $.each(users, function (i, username) {
+                    online++;
                     console.log(username);
                     str += '<li class="pm" id="'
                         + tab + username + '"  data-user="' + username + '" ><span>'
@@ -157,6 +160,14 @@ $(function () {
 
 
     function bindMe() {
+        $('span.noUser').html(online);
+        $('.chatBar div.user').click(function () {
+            $('#Users').slideToggle('slow');
+        });
+        $('.hideBar').click(function () {
+            $('#Users').slideToggle('slow');
+        });
+        
         console.log('bind');
         $('.pm').click(function () {
             var us = $(this).data('user');

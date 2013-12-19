@@ -125,6 +125,77 @@ padding-top: 12px;
 padding-bottom: 12px;
 /*content:url('/content/send.png');*/
 }
+.chatBar {
+    position:fixed;
+    left:0;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    z-index:2000;
+    background: rgb(252,255,244); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(252,255,244,1) 0%, rgba(223,229,215,1) 40%, rgba(179,190,173,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(252,255,244,1)), color-stop(40%,rgba(223,229,215,1)), color-stop(100%,rgba(179,190,173,1))); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    border:1px groove rgba(128, 125, 125, 0.53);
+
+}
+.user {
+    margin-left:19px;
+    width:150px;
+    float:left;
+}
+
+.tab {
+    cursor:pointer;
+    height:30px;
+    border-left:1px inset gray;
+    border-right:1px inset gray;
+    padding-left:10px;
+    padding-top:5px;
+}
+#Users {
+    border:1px inset gray;
+    position:fixed;
+    bottom:31px;
+    width:160px;
+    min-height:100px;
+    /*height:160px;
+    overflow:scroll;*/
+    background: rgb(233,246,253); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(233,246,253,1) 0%, rgba(211,238,251,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(233,246,253,1)), color-stop(100%,rgba(211,238,251,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(233,246,253,1) 0%,rgba(211,238,251,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(233,246,253,1) 0%,rgba(211,238,251,1) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(233,246,253,1) 0%,rgba(211,238,251,1) 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  rgba(233,246,253,1) 0%,rgba(211,238,251,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', endColorstr='#d3eefb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+#Users ul {
+        margin-left: 0px!important;
+        list-style:none;
+        padding-left:0px!important;
+
+    }
+#Users ul li {
+            padding:2px;
+            margin-left:0px!important;
+            cursor:pointer;
+            
+            border-bottom:1px inset gray;
+        }
+.listHeader {
+    padding-right:9px;
+    padding-left:10px;
+    height:20px;
+    background:rgba(50, 112, 224, 0.78);
+}
+
 
 /*! perfect-scrollbar - v0.4.5
 * http://noraesae.github.com/perfect-scrollbar/
