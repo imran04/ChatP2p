@@ -2,6 +2,37 @@
     ViewBag.Title = "Chat";
 }
 @section scripts { 
+
+    <script id="ChatBox" type="text/x-jsrender">
+
+        <div data-tabclose="{{:tab}}" id="tbb" >
+            <div>
+            <h5>{{:username}}
+                <span data-tab="{{:tab}}" class="close chatc">x</span>
+            </h5>
+            <ul id="msg" class="msg ps-scrollbar" data-dd="{{:tab}}"></ul>
+            </div>
+            <div>
+            <textarea placeholder="Enter some text !" data-id={{:tab}} data-user={{:username}} id={{:tab}} class="tm" ></textarea>
+            <button class="send" data-user="{{:username}}" data-tab="{{:tab}}">send</button>
+            </div>
+        </div>
+   
+</script>
+<script id="UserItem" type="text/x-jsrender">
+    <li class="pm" id="{{:tabid}}" data-user="{{:username}}" >
+        <span>{{:username}}</span>
+        <input type="hidden" id="tab" value="{{:tabid}}">
+        <input type="hidden" id="shown" data-tab="{{:tabid}}" value="{{:state}}"/>
+    </li>
+</script>
+<script id="MessageItem" type="text/x-jsrender">
+    <li class="{{:status}} last">
+    <div class="msgcon {{:status1}}">{{:message}}</div>
+    </li>
+    
+</script>
+    <script src="/Scripts/jsrender.js"></script>
     <script src="/Scripts/jquery.cssemoticons.min.js"></script>
     <script src="/Scripts/jquery.signalR-1.1.4.min.js"></script>
     <script src="/signalr/hubs"></script>

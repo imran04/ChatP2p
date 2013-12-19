@@ -116,7 +116,8 @@
 	margin-top: -4px;
 }
 .tm {
-    width:200px!important;
+    width:199px!important;
+    -moz-width:197px!important;
     margin-bottom:0px!important;
 
 }
@@ -194,6 +195,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', end
     padding-left:10px;
     height:20px;
     background:rgba(50, 112, 224, 0.78);
+}
+#tabHolder {left: 182px;
+bottom: 31px;
+position: fixed;
 }
 
 
