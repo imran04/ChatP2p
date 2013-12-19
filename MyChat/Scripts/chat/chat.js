@@ -186,10 +186,10 @@ $(function () {
             "<h5>" + username +
             "<span data-tab=" + tabed + " class='close chatc'>x</span>" +
             "</h5>" +
-            "<ul id='msg' class='msg' data-dd='" + tabed + "'></ul>" +
+            "<ul id='msg' class='msg ps-scrollbar' data-dd='" + tabed + "'></ul>" +
             "</div>" +
             "<div>" +
-            "<input type='text' data-id=" + tabed + " data-user=" + username + " id=" + tabed + " class='tm'/><button class='send' data-user=" + username + " data-tab=" + tabed + ">send</button>" +
+            "<textarea placeholder='Enter some text !' data-id='" + tabed + "' data-user='" + username + "' id='" + tabed + "' class='tm' ></textarea><button class='send' data-user=" + username + " data-tab=" + tabed + ">send</button>" +
             "</div></div>";
         $('#tabHolder').append(str);
         removeD();
@@ -206,6 +206,7 @@ $(function () {
             var tabbed = $(this).data('tab');
             var msg = $('input[data-id="' + tabbed + '"]').val();
             console.log(msg);
+            if (msg != null) {
             $('input[data-id="' + tabbed + '"]').val('');
             var use = $(this).data('user');
             $('ul[data-dd="' + tabbed + '"]').append('<li class="last from"><div class="msgcon sent">' + msg + '</div><div class=""></div></li>');
@@ -219,6 +220,7 @@ $(function () {
             chatHub.server.send(msg, use).fail(function (err) {
                 console.log('Send method failed: ' + err);
             });
+                }
 
         });
         $('.tm').keypress(function (e) {
@@ -227,8 +229,9 @@ $(function () {
 
                 var use = $(this).data('user');
                 var msg = $(this).val();
-                if (msg != null) {
-                    $(this).val('');
+                $(this).val('');
+                if (msg.length>0) {
+                    
                     var tab = $(this).data('id');
                     $('ul[data-dd="' + tab + '"]').append('<li class="last from"><div class="msgcon sent">' + msg + '</div><div class=""></div></li>');
                     $('ul[data-dd="' + tab + '"]').scrollTo('ul[data-dd="' + tab + '"] li.last', { duration: 'slow', offsetTop: '50' }, function () { $('ul[data-dd="' + tab + '"] li.last').last().removeClass('last'); });
