@@ -14,12 +14,15 @@
 <div class="row-fluid">
     <div class="span8">
         <p class="emotion">
-            Dedicated to my Love Cutie Pie! (she hates me :"( )
+            Dedicated to my Love Cutie Pie! (she hates me :'( )
         </p>
         <p>
-            Written in Asp.Net Mvc 4.<br />
+            Written in Asp.Net Mvc.<br />
             With help of<br />
-            SIgnalR,Jquery,JsRender,emotionize.
+            <span class="label">SignalR </span> for chat server.<br />
+            <span class="label">Jquery</span> Client Side.<br />
+            <span class="label">JsRender</span> for templating client ui.<br />
+            <span class="label">Emotionize</span> for <span class="emotion"> :) :P :| 8O</span>. 
         </p>
         <p>
             
@@ -38,7 +41,8 @@
     </div>
     </div>
 @section scripts{
-    <script src="/Scripts/jquery.cssemoticons.min.js"></script>
+    <script src="/Content/jquery-2.0.3.min.js"></script>
+    <script src="/content/jquery.cssemoticons.min.js"></script>
     <script>$(function () { $('.emotion').emoticonize(); })</script>
     }
 

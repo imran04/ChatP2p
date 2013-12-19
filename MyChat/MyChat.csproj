@@ -133,7 +133,9 @@
     <Content Include="Content\chat.wav" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\jquery-2.0.3.min.js" />
     <Content Include="Content\jquery.cssemoticons.css" />
+    <Content Include="Content\jquery.cssemoticons.min.js" />
     <Content Include="Content\send.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />

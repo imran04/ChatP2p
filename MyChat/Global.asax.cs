@@ -23,7 +23,8 @@ namespace MyChat
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.IgnoreRoute("Content/jquery*.js");
+            //routes.IgnoreRoute("Content/*");
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
@@ -41,8 +42,9 @@ namespace MyChat
             Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
 
             RegisterGlobalFilters(GlobalFilters.Filters);
-            RegisterRoutes(RouteTable.Routes);
             RouteTable.Routes.MapHubs();
+            RegisterRoutes(RouteTable.Routes);
+           
         }
     }
 }
