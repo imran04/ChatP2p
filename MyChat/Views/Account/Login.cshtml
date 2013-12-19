@@ -3,11 +3,42 @@
 @{
     ViewBag.Title = "Login";
 }
+@section head{
+    <link href="/Content/jquery.cssemoticons.css" rel="stylesheet" />
+    <style>
+        .emotion {
+            font-size:20px;
+        }
+    </style>
+    }
+<div class="row-fluid">
+    <div class="span8">
+        <p class="emotion">
+            Dedicated to my Love Cutie Pie! (she hates me :"( )
+        </p>
+        <p>
+            Written in Asp.Net Mvc 4.<br />
+            With help of<br />
+            SIgnalR,Jquery,JsRender,emotionize.
+        </p>
+        <p>
+            
+        </p>
 
+
+    </div>
+    <div class="span4">
 <h2>Login</h2>
 
 @using (Html.BeginForm()) {
 
     @Html.EditorForModel()
-    <input type="submit" class="btn" value="Login" />
+    <button>Login</button>
 }
+    </div>
+    </div>
+@section scripts{
+    <script src="/Scripts/jquery.cssemoticons.min.js"></script>
+    <script>$(function () { $('.emotion').emoticonize(); })</script>
+    }
+
