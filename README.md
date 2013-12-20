@@ -1,4 +1,15 @@
-ChatP2p
+Chat (please suggest a nice name)
 =======
 
-C# ASP.NET MVC 3 AND SIGNALR BASED CHAT P2P APP
+A chat component for Asp.net.
+
+Road Map.
+
+To add basic chat support.
+
+To add File upload in chat tab.
+
+To add Voice Chat.
+
+To add Video streaming Chat.
+
